@@ -45,6 +45,7 @@ RUN chmod +x /usr/local/bin/starter-entrypoint \
     && sed -ri 's/^user = .*/user = app/' /usr/local/etc/php-fpm.d/www.conf \
     && sed -ri 's/^group = .*/group = app/' /usr/local/etc/php-fpm.d/www.conf
 
+RUN git config --system --add safe.directory /var/www/html
 WORKDIR /var/www/html
 
 ENTRYPOINT ["starter-entrypoint"]
